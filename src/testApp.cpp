@@ -67,7 +67,8 @@ void testApp::draw(){
 	//draw a translucent wireframe sphere (ofNoFill() is on)
 	ofPushMatrix();
 	//add an extra spin at the rate of 1 degree per frame
-	ofRotate(ofGetFrameNum(), 0, 1, 0);
+	float rotSpeed = ofGetFrameNum()*0.1;
+	ofRotate(rotSpeed, 0, 1, 0);
 	ofSphere(0, 0, 0, 300);
 	ofPopMatrix();
 	
@@ -80,7 +81,7 @@ void testApp::draw(){
 		ofQuaternion latRot, longRot, spinQuat;
 		latRot.makeRotate(cities[i].latitude, 1, 0, 0);
 		longRot.makeRotate(cities[i].longitude, 0, 1, 0);
-		spinQuat.makeRotate(ofGetFrameNum(), 0, 1, 0);
+		spinQuat.makeRotate(rotSpeed, 0, 1, 0);
 		
 		//our starting point is 0,0, on the surface of our sphere, this is where the meridian and equator meet
 		ofVec3f center = ofVec3f(0,0,300);
