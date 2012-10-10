@@ -7,7 +7,7 @@ typedef struct {
 	float latitude;
 	float longitude;
 	ofImage *img;
-} City;
+} Face;
 
 class testApp : public ofBaseApp{
 
@@ -26,5 +26,6 @@ class testApp : public ofBaseApp{
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 		
-	vector<City> cities;
+	vector<Face> faces;
+	int mode ;
 };
